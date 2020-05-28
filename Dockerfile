@@ -19,13 +19,10 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 
 EXPOSE 22
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-RUN rm -f /var/www/html/index.nginx-debian.html
 COPY index.php /var/www/html/index.php
+COPY default /etc/nginx/sites-available/default
 
 COPY db.sql /tmp/db.sql
 RUN service mysql start && mysql < /tmp/db.sql
-
-# Config Nginx
-RUN sed -ri  "s/index index.html index.htm/index index.php index.html index.htm/g" /etc/nginx/sites-available/default
 
 CMD ["/usr/bin/supervisord"]

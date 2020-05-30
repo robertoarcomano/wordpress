@@ -5,7 +5,7 @@ FROM ubuntu:20.04
 
 RUN env TZ=Europe/Rome
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-RUN apt-get update && apt-get install -y openssh-server mysql-server nginx php php-mysql vim supervisor php7.4-fpm
+RUN apt-get update && apt-get install -y openssh-server mysql-server nginx php php-mysql vim supervisor php7.4-fpm wordpress
 RUN mkdir /var/run/sshd
 RUN echo 'root:root' | chpasswd
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config

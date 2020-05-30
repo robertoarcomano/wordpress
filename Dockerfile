@@ -20,6 +20,7 @@ RUN echo "export VISIBLE=now" >> /etc/profile
 EXPOSE 22
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 COPY default /etc/nginx/sites-available/default
+RUN rm -rf /var/www/html && ln -s /usr/share/wordpress /var/www/html
 
 COPY db.sql /tmp/db.sql
 RUN service mysql start && mysql < /tmp/db.sql

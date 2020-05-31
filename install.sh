@@ -6,9 +6,9 @@ rm -rf /tmp/wordpress
 git clone https://github.com/robertoarcomano/wordpress.git /tmp/wordpress
 
 # 2. Download Dockerfile and create image
-docker rmi -f wordpress
+docker rmi -f robertoarcomano/wordpress
 cp -a wordpress* /tmp/wordpress/
-docker build -t wordpress /tmp/wordpress
+docker build -t robertoarcomano/wordpress /tmp/wordpress
 
 # 3. Create the container from the image
 docker rm -f wordpress

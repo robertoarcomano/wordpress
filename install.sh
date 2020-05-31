@@ -2,13 +2,12 @@
 # Script to Create a Container for LAMP, using Docker
 
 # 1. Download git repository
-#rm -rf /tmp/wordpress
-#git clone https://github.com/robertoarcomano/wordpress.git /tmp/wordpress
+rm -rf /tmp/wordpress
+git clone https://github.com/robertoarcomano/wordpress.git /tmp/wordpress
 
 # 2. Download Dockerfile and create image
-#docker rmi -f wordpress
-#docker build -t wordpress /tmp/wordpress
-docker build -t robertoarcomano/wordpress .
+docker rmi -f wordpress
+docker build -t wordpress /tmp/wordpress
 
 # 3. Create the container from the image
 docker rm -f wordpress

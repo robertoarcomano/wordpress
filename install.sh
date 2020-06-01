@@ -12,7 +12,7 @@ docker build -t robertoarcomano/wordpress /tmp/wordpress
 
 # 3. Create the container from the image
 docker rm -f wordpress
-docker create -p 81:80 --name "wordpress" robertoarcomano/wordpress
+docker create -p 81:80 --name "wordpress" --restart=unless-stopped robertoarcomano/wordpress
 
 # 4. Start the container
 docker start wordpress

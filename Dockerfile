@@ -3,6 +3,7 @@
 # 1. Create from dockerlemp
 FROM robertoarcomano/dockerlemp
 
+RUN apt-update && apt install -y php7.4-curl
 # 2. Replace main web directory with wordpress one
 RUN rm -rf /var/www/html
 COPY wordpress/ /var/www/html/
